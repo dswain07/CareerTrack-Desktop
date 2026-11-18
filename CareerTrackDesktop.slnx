@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CareerTrack.Core/CareerTrack.Core.csproj" />
+  <Project Path="CareerTrack.Desktop/CareerTrack.Desktop.csproj" />
+</Solution>

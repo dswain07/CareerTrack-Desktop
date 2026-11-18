@@ -1,0 +1,142 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CareerTrack.Desktop.Views.MainWindow"
+        x:CompileBindings="False"
+        Title="CareerTrack Desktop"
+        Width="1100"
+        Height="760"
+        MinWidth="900"
+        MinHeight="650"
+        Background="#F4F6FA">
+
+    <Grid Margin="24" RowDefinitions="Auto,*,Auto">
+
+        <StackPanel Margin="0,0,0,20" Spacing="5">
+            <TextBlock Text="CareerTrack"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#172554"/>
+            <TextBlock Text="Your desktop job application tracker"
+                       Foreground="#475569"/>
+            <TextBlock x:Name="SummaryText"
+                       FontWeight="SemiBold"
+                       Foreground="#1D4ED8"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,24,360">
+
+            <!-- Application list -->
+            <Grid RowDefinitions="Auto,Auto,*">
+                <TextBlock Text="Applications"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,12"/>
+
+                <TextBox Grid.Row="1"
+                         x:Name="SearchBox"
+                         Watermark="Search company, job title, location, or status"
+                         TextChanged="SearchBox_TextChanged"
+                         Margin="0,0,0,12"/>
+
+                <ListBox Grid.Row="2"
+                         x:Name="ApplicationsList"
+                         SelectionChanged="ApplicationsList_SelectionChanged"
+                         Background="White"
+                         BorderBrush="#CBD5E1"
+                         BorderThickness="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="8" Spacing="4">
+                                <TextBlock Text="{Binding JobTitle}"
+                                           FontSize="17"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding Company}"/>
+                                <TextBlock Text="{Binding Location}"
+                                           Foreground="#64748B"/>
+                                <TextBlock Text="{Binding Status}"
+                                           FontWeight="SemiBold"
+                                           Foreground="#1D4ED8"/>
+                                <TextBlock
+                                    Text="{Binding DateApplied,
+                                           StringFormat='Applied: {0:MMM dd, yyyy}'}"
+                                    FontSize="12"
+                                    Foreground="#64748B"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <!-- Add / edit form -->
+            <Border Grid.Column="2"
+                    Background="White"
+                    Padding="20"
+                    CornerRadius="8">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Spacing="8">
+
+                        <TextBlock x:Name="FormHeading"
+                                   Text="New application"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,8"/>
+
+                        <TextBlock Text="Company *"/>
+                        <TextBox x:Name="CompanyBox"
+                                 Watermark="Microsoft"/>
+
+                        <TextBlock Text="Job title *"/>
+                        <TextBox x:Name="JobTitleBox"
+                                 Watermark="Software Engineer"/>
+
+                        <TextBlock Text="Location"/>
+                        <TextBox x:Name="LocationBox"
+                                 Watermark="Seattle, WA / Remote"/>
+
+                        <TextBlock Text="Status"/>
+                        <ComboBox x:Name="StatusBox"
+                                  HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Date applied"/>
+                        <DatePicker x:Name="AppliedDatePicker"
+                                    HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Notes"/>
+                        <TextBox x:Name="NotesBox"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 MinHeight="75"
+                                 Watermark="Recruiter details, next steps..."/>
+
+                        <WrapPanel Margin="0,12,0,0">
+                            <Button Content="Save application"
+                                    Click="Save_Click"
+                                    Background="#1D4ED8"
+                                    Foreground="White"
+                                    Margin="0,0,8,8"/>
+                            <Button Content="New / Clear"
+                                    Click="New_Click"
+                                    Margin="0,0,0,8"/>
+                        </WrapPanel>
+
+                        <CheckBox x:Name="ConfirmDeleteBox"
+                                  Content="Confirm deletion of selected application"/>
+
+                        <Button x:Name="DeleteButton"
+                                Content="Delete selected"
+                                Click="Delete_Click"
+                                IsEnabled="False"
+                                Foreground="#B91C1C"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <TextBlock Grid.Row="2"
+                   x:Name="MessageText"
+                   Margin="0,16,0,0"
+                   TextWrapping="Wrap"
+                   Foreground="#334155"/>
+    </Grid>
+</Window>
