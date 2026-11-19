@@ -4,8 +4,6 @@ CareerTrack Desktop is a cross-platform job application tracker built with C#, A
 
 The application was developed in Visual Studio on Windows and compiled and run on macOS on a MacBook Air. The instructor approved macOS as the target operating system for this assignment.
 
-**Author:** Divyashanu Swain
-
 ## Features
 
 - Add, view, edit, and delete job applications.
@@ -117,10 +115,6 @@ Use the following checks after building a fresh copy:
 
 This is a manual verification checklist, not an automated test report.
 
-## Assignment documentation
-
-The Blackboard submission document answers the six required reflection questions and includes screenshots of the application running on Windows and macOS. Submit the GitHub repository URL and the PDF or DOCX document through Blackboard.
-
 ## Current limitations and future improvements
 
 - Records are local to each computer; there is no cloud synchronization or authentication.
@@ -129,3 +123,7 @@ The Blackboard submission document answers the six required reflection questions
 - Distribution currently uses source builds rather than signed installers.
 
 Future work could include automated tests, improved accessibility and responsive layout, backup and recovery, shared API and database storage, signed Windows and macOS releases, and automatic updates.
+
+## **Author:** 
+
+Divyashanu Swain
